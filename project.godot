@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="FVCMonteCarlo"
+run/main_scene="uid://bfvtqq1hq7iuy"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DataController="*res://scripts/data_controller.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [rendering]
 

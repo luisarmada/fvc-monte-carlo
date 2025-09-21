@@ -1,0 +1,339 @@
+[gd_scene load_steps=17 format=3 uid="uid://bfvtqq1hq7iuy"]
+
+[ext_resource type="FontFile" uid="uid://dnrrtu7725hhc" path="res://fonts/Roboto-Medium.ttf" id="1_o5qli"]
+[ext_resource type="FontFile" uid="uid://dwhuxk80ie0gr" path="res://fonts/Roboto-Regular.ttf" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://crbijkkoad2jr" path="res://scripts/input_control_panel.gd" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://cm4s1yv6wm6yx" path="res://scripts/data_table.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cknx7du0x2u7s" path="res://scenes/data_table_row.tscn" id="3_sugp2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgp6g"]
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.964706, 0.964706, 0.964706, 1)
+border_color = Color(0.901961, 0.901961, 0.901961, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(0.964706, 0.964706, 0.964706, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0235294, 0.490196, 0.717647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.00990666, 0.349032, 0.517876, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wfyh"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+content_margin_left = 3.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
+content_margin_left = 8.0
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.262932, 0.262932, 0.262932, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.167056, 0.654398, 0.26189, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.117834, 0.470474, 0.183916, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.192157, 0.788235, 0.313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+bg_color = Color(0.992157, 0.780392, 0.270588, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sgp6g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_o5qli")
+bbcode_enabled = true
+text = "FVC Monte Carlo Simulation"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Window" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlPanel" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Window"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
+script = ExtResource("2_tbgi4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel"]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5qli")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_o5qli")
+text = "Input Data"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Window" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0wfyh")
+
+[node name="BasicVariables" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window"]
+layout_mode = 2
+
+[node name="Steps" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/Steps"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_0wfyh")
+theme_override_font_sizes/normal_font_size = 14
+text = "Number of steps (S): "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/Steps"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0wfyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jyhfs")
+caret_blink = true
+
+[node name="Walks" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/Walks"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_0wfyh")
+theme_override_font_sizes/normal_font_size = 14
+text = "Number of walks (N): "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/Walks"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0wfyh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jyhfs")
+caret_blink = true
+
+[node name="StartingPrice" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/StartingPrice"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_0wfyh")
+theme_override_font_sizes/normal_font_size = 14
+text = "Starting share price (£): "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/StartingPrice"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0wfyh")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_tbgi4")
+text = "100"
+editable = false
+caret_blink = true
+
+[node name="StepChange" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/StepChange"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_0wfyh")
+theme_override_font_sizes/normal_font_size = 14
+text = "Step change (£): "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables/StepChange"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0wfyh")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_tbgi4")
+text = "1"
+editable = false
+caret_blink = true
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="SimulateButton" type="Button" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_o5qli")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tipki")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+text = "Run Simulation"
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+visible = false
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_85g3d")
+
+[node name="Control3" type="Control" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="RuntimeLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_0wfyh")
+theme_override_font_sizes/normal_font_size = 14
+text = "Run time: __s"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/ControlPanel/VBoxContainer/Window/BasicVariables"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_0wfyh")
+theme_override_font_sizes/normal_font_size = 14
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Window"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_sugp2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Window/PanelContainer"]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="CanvasLayer/VBoxContainer/Window/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5qli")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Window/PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_o5qli")
+text = "Output Data"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/Window/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0wfyh")
+horizontal_scroll_mode = 0
+
+[node name="DataTable" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Window/PanelContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+script = ExtResource("3_jyhfs")
+
+[node name="TableRow" parent="CanvasLayer/VBoxContainer/Window/PanelContainer/VBoxContainer/PanelContainer2/DataTable" instance=ExtResource("3_sugp2")]
+layout_mode = 2
+is_header = true
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/Window/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
