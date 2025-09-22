@@ -42,6 +42,6 @@ For `S=10` and `N=10,000`, the simulation runs in a fraction of a second. For `N
 
 ## Answer to the Exercise
 
-When run with `S = 10` steps and `N = 10,000` walks, the probability that the final share price is **£100 is approximately 24.5%**. This result is consistent across multiple runs and aligns with the theoretical binomial probability of ~24.6%.
+When run with `S = 10` steps and `N = 10,000` walks, the probability that the final share price is **£100 is approximately 24.5%**.
 
 ---
