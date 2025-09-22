@@ -6,6 +6,8 @@ A visual implementation of a Monte Carlo simulation for a financial random walk,
 
 *For the best experience, use Google Chrome. Firefox may open the project in a separate window which can cause resolution issues.*
 
+<img width="1144" height="641" alt="image" src="https://github.com/user-attachments/assets/187bb39f-31bc-436b-997f-48dbfe2219ec" />
+
 ## Project Description
 
 This project fulfills a coding exercise to simulate a random walk of a share price starting at £100. With each step, the price has an equal probability of increasing or decreasing by £1. The application runs a user-defined number of simulations (`N`) for a number of steps (`S`), calculates the resulting probability distribution of final prices, and presents it both visually and in a detailed data table.
