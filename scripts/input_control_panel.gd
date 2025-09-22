@@ -32,6 +32,12 @@ func RunSimulation():
 	if num_steps < 1 or num_walks < 1:
 		error_label.text = "ERROR: Please enter values greater than 0."
 		return
+	elif num_steps > 100:
+		error_label.text = "ERROR: S cannot be more than 100."
+		return
+	elif num_walks > 100000:
+		error_label.text = "ERROR: N cannot be more than 100000."
+		return
 	
 	# Get ready for simulation
 	var rng = RandomNumberGenerator.new()
