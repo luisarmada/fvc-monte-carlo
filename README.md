@@ -3,6 +3,7 @@
 A visual implementation of a Monte Carlo simulation for a financial random walk, built with Godot Engine.
 
 **Run Project:** [https://luera.itch.io/fvc-monte-carlo-simulation](https://luera.itch.io/fvc-monte-carlo-simulation)
+
 *For the best experience, use Google Chrome. Firefox may open the project in a separate window which can cause resolution issues.*
 
 ## Project Description
